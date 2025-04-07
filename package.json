@@ -1,0 +1,24 @@
+{
+  "name": "erosenberg-dev",
+  "version": "1.0.0",
+  "description": "Ethan Rosenberg's Digital Portfolio",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egrosenberg/erosenberg-dev.git"
+  },
+  "author": "Ethan Rosenberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/egrosenberg/erosenberg-dev/issues"
+  },
+  "homepage": "https://github.com/egrosenberg/erosenberg-dev#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.8"
+  }
+}
