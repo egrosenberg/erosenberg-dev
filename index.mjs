@@ -5,6 +5,12 @@ import hbs from './modules/handlebars.mjs';
 // register helpers
 hbs.registerHelpers();
 
+// load handlebars partials
+hbs.loadPartials([
+    "./templates/parts/js-includes.hbs",
+]);
+
+
 const STATUS = {
     Ok: 200,
     Created: 201,
