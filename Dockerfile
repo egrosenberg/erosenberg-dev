@@ -12,4 +12,4 @@ COPY --chown=node:node . .
 
 EXPOSE 2019
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "index.mjs" ]
