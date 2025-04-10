@@ -289,7 +289,7 @@ a:hover {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--color-dark-2) rgba(0, 0, 0, 0);
-    background-image: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%);
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .display.thin {
@@ -516,7 +516,7 @@ table h3 {
 
 .display .gradient-stripe {
     position: absolute;
-    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .display .vc {
@@ -700,15 +700,19 @@ table h3 {
     margin-top: 0;
 }
 
+.display #list {
+    display: flex;
+    flex-direction: column;
+}
+
 .display .content-list {
+    flex: 1;
     list-style: none;
-    text-align: left;
+    text-align: right;
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-size: var(--font-size-24);
-    overflow-y: auto;
     scrollbar-width: thin;
     padding: 10px 0 0 0;
 }
@@ -728,27 +732,27 @@ table h3 {
 
 
 @property --stopA {
-	syntax: '<percentage>';
-	initial-value: 0%;
-	inherits: true
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true
 }
 
 @property --stopB {
-	syntax: '<percentage>';
-	initial-value: 0%;
-	inherits: true
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true
 }
 
 @property --stopC {
-	syntax: '<percentage>';
-	initial-value: 0%;
-	inherits: true
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true
 }
 
 @property --stopD {
-	syntax: '<percentage>';
-	initial-value: 0%;
-	inherits: true
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true
 }
 
 .halftone-container-outer {
@@ -792,32 +796,26 @@ table h3 {
     --color-a: #0D41420f;
     --color-b: #0D41420f;
 
-	--map: radial-gradient(
-			circle at 0% 0%,
-			var(--color-a) 0%, 
-			var(--color-b) var(--stopA), 
-			var(--color-a) var(--stopB), 
-			var(--color-b) 100%
-	);
-	
-	--map2: radial-gradient(
-			circle at 100% 0%,
-			var(--color-a) 0%, 
-			var(--color-b) var(--stopA), 
-			var(--color-a) var(--stopB), 
-			var(--color-b) 100%
-	);
+    --map: radial-gradient(circle at 0% 0%,
+            var(--color-a) 0%,
+            var(--color-b) var(--stopA),
+            var(--color-a) var(--stopB),
+            var(--color-b) 100%);
 
-	--map3: radial-gradient(
-			circle at 50% 100%,
-			var(--color-a) 0%, 
-			var(--color-b) var(--stopA), 
-			var(--color-a) var(--stopB), 
-			var(--color-b) 100%
-	);
+    --map2: radial-gradient(circle at 100% 0%,
+            var(--color-a) 0%,
+            var(--color-b) var(--stopA),
+            var(--color-a) var(--stopB),
+            var(--color-b) 100%);
+
+    --map3: radial-gradient(circle at 50% 100%,
+            var(--color-a) 0%,
+            var(--color-b) var(--stopA),
+            var(--color-a) var(--stopB),
+            var(--color-b) 100%);
 
     background-image: var(--map), var(--map2), var(--map3);
-	animation: pulse 12s linear infinite;
+    animation: pulse 12s linear infinite;
 }
 
 .halftone {
@@ -828,54 +826,47 @@ table h3 {
     height: 100%;
     position: absolute;
 
-    --color-accent: #0D4142af;
+    --color-accent: #0D41426f;
 
-	--dot: radial-gradient(closest-side, #777, #000 calc(100%/sqrt(2)));
-	--pattern: var(--dot) 0 0/ 2em 2em, var(--dot) 1em 1em/ 2em 2em;
-	--map: radial-gradient(
-			circle at 0% 50%,
-			var(--color-accent) 0%, 
-			#00000000 var(--stopA), 
-			var(--color-accent) var(--stopB), 
-			#00000000 100%
-	);
-	
-	--map2: radial-gradient(
-			circle at 50% 0%,
-			var(--color-accent) 0%, 
-			#00000000 var(--stopA), 
-			var(--color-accent) var(--stopB), 
-			#00000000 100%
-	);
+    --dot1: linear-gradient(#777, #0000 10%);
+    --dot2: linear-gradient(90deg, #777, #0000 10%);
+    --pattern: var(--dot1) 0 0/ 0.75em 0.75em, var(--dot2) 0 0/ 0.75em 0.75em/*, var(--dot) 0.5em 0.5em/ 1em 1em*/;
+    --map: radial-gradient(circle at 0% 50%,
+            var(--color-accent) 0%,
+            #00000000 var(--stopA),
+            var(--color-accent) var(--stopB),
+            #00000000 100%);
 
-	--map3: radial-gradient(
-			circle at 50% 100%,
-			var(--color-accent) 0%, 
-			#00000000 var(--stopA), 
-			var(--color-accent) var(--stopB), 
-			#00000000 100%
-	);
+    --map2: radial-gradient(circle at 50% 0%,
+            var(--color-accent) 0%,
+            #00000000 var(--stopA),
+            var(--color-accent) var(--stopB),
+            #00000000 100%);
 
-	--map4: radial-gradient(
-			circle at 100% 50%,
-			var(--color-accent) 0%, 
-			#00000000 var(--stopA), 
-			var(--color-accent) var(--stopB), 
-			#00000000 100%
-	);
+    --map3: radial-gradient(circle at 50% 100%,
+            var(--color-accent) 0%,
+            #00000000 var(--stopA),
+            var(--color-accent) var(--stopB),
+            #00000000 100%);
 
-	background: 
-		var(--pattern),
-		var(--map),
-		var(--map2),
-		var(--map3),
-		var(--map4);
-  background-blend-mode: screen;
-	mix-blend-mode: screen;
-  filter: contrast(24);
-	animation: pulse 22s linear infinite;
-	transform-origin: center;
-	opacity: 0.4;
+    --map4: radial-gradient(circle at 100% 50%,
+            var(--color-accent) 0%,
+            #00000000 var(--stopA),
+            var(--color-accent) var(--stopB),
+            #00000000 100%);
+
+    background:
+        var(--pattern),
+        var(--map),
+        var(--map2),
+        var(--map3),
+        var(--map4);
+    background-blend-mode: screen;
+    mix-blend-mode: screen;
+    filter: contrast(24);
+    animation: pulse 12s linear infinite;
+    transform-origin: center;
+    opacity: 0.4;
 }
 
 
@@ -884,18 +875,20 @@ table h3 {
 }
 
 @keyframes pulse {
-	0% {
-		--stopA: 0%;
-		--stopB: 0%;
-	}
-	50% {
-		--stopA: 0%;
-		--stopB: 100%;
-	}
-	100% {
-		--stopA: 100%;
-		--stopB: 100%;
-	}
+    0% {
+        --stopA: 0%;
+        --stopB: 0%;
+    }
+
+    50% {
+        --stopA: 0%;
+        --stopB: 100%;
+    }
+
+    100% {
+        --stopA: 100%;
+        --stopB: 100%;
+    }
 }
 
 /* Mobile Overrides */
@@ -914,5 +907,9 @@ table h3 {
     .navigation {
         font-size: var(--font-size-36);
     }
-    .halftone, .halftone-bg { display : none; }
+
+    .halftone,
+    .halftone-bg {
+        display: none;
+    }
 }
