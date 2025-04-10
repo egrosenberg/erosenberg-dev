@@ -52,6 +52,8 @@ $(document).ready(() => {
             $("#list").fadeOut();
             // mark as inactive
             ev.currentTarget.classList.remove("active");
+            // update url
+            window.history.pushState({"html": document.innerHTML,"pageTitle": name},"", `/`)
         }
     });
 
@@ -77,5 +79,18 @@ $(document).ready(() => {
             const page = window.location.pathname.match(/^\/[^\/]*/)[0]?.slice(1);
             window.history.pushState({"html": document.innerHTML,"pageTitle": page},"", `/${page}`);
         }
+    });
+
+    // gradient following cursor
+    $(".content").on("mousemove", (ev) => {
+        const offsetX = $(".halftone-container-outer").offset().left;
+        const offsetY = $(".halftone-container-outer").offset().top;
+        const x = ev.pageX - offsetX;
+        const y = ev.pageY - offsetY;
+        console.log(x, y);
+        $(".halftone").css({"--cursor-x": x+"px", "--cursor-y": y+"px"});
+    });
+    $(".content").on("mouseleave", () => {
+        $(".halftone").css({"--cursor-x": "10000px", "--cursor-y":  "10000px"});
     });
 });

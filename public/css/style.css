@@ -835,7 +835,7 @@ table h3 {
 
     --dot1: linear-gradient(#777, #0000 10%);
     --dot2: linear-gradient(90deg, #777, #0000 10%);
-    --pattern: var(--dot1) 0 0/ 0.75em 0.75em, var(--dot2) 0 0/ 0.75em 0.75em/*, var(--dot) 0.5em 0.5em/ 1em 1em*/;
+    --pattern: var(--dot1) 0 0/ 0.75em 0.75em, var(--dot2) 0 0/ 0.75em 0.75em;
     --map: radial-gradient(circle at 0% 50%,
             var(--color-accent) 0%,
             #00000000 var(--stopA),
@@ -860,12 +860,20 @@ table h3 {
             var(--color-accent) var(--stopB),
             #00000000 100%);
 
+    --cursor-x: 1000%;
+    --cursor-y: 1000%;
+    --cursor: radial-gradient(circle at var(--cursor-x) var(--cursor-y),
+            #000 0%,
+            #000d 10%,
+            #0000 30%);
+
     background:
         var(--pattern),
         var(--map),
         var(--map2),
         var(--map3),
-        var(--map4);
+        var(--map4),
+        var(--cursor);
     background-blend-mode: screen;
     mix-blend-mode: screen;
     filter: contrast(24);
