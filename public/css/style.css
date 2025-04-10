@@ -7,11 +7,12 @@ body {
     font-style: normal;
     background-color: rgb(17, 17, 17);
     color: lightgray;
+    background: #000;
 
-    background-image: url("../img/bg.webp");
+    /*background-image: url("../img/bg.webp");
     background-repeat: no-repeat;
     background-size: cover;
-
+    */
     /* variables */
     --font-size-10: 0.625rem;
     --font-size-11: 0.6875rem;
@@ -275,17 +276,20 @@ a:hover {
 
 /* Main content */
 .display {
-    top: 100px;
-    bottom: 100px;
-    left: 100px;
-    right: 100px;
+    top: 0px;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
     position: fixed;
     padding: 55px;
+    padding: 0px;
     border-radius: 5px;
     background-color: var(--color-dark-1);
+    background-color: #00000000;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--color-dark-2) rgba(0, 0, 0, 0);
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%);
 }
 
 .display.thin {
@@ -310,7 +314,6 @@ a:hover {
     flex-direction: row;
     margin-bottom: 10px;
 }
-
 
 .display .embedded-description.center {
     justify-content: center;
@@ -511,14 +514,129 @@ table h3 {
 
 }
 
+.display .gradient-stripe {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%);
+}
+
+.display .vc {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.display .vc .top {
+    padding-left: 35px;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.display .vc .top .contacts {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    padding-left: 35px;
+    font-size: var(--font-size-32);
+    gap: 15px;
+}
+
+.display .vc .top .contacts .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.display .vc .top .contacts a {
+    color: inherit;
+    font-weight: inherit;
+}
+
+.display .vc .top .contacts a:hover {
+    color: white;
+}
+
+.display .vc .top .contacts .contact i {
+    margin-right: 4px;
+}
+
+
+.display .vc .right .contacts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-28);
+    gap: 15px;
+    text-align: right;
+}
+
+.display .vc .right .contacts .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.display .vc .right .contacts a {
+    color: inherit;
+    font-weight: inherit;
+}
+
+.display .vc .right .contacts a:hover {
+    color: white;
+}
+
+.display .vc .right .contacts .contact i {
+    margin-left: 0.25em;
+}
+
+
+.display .vc .main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.display .vc .main .left {
+    width: 220px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: calc(100% - 35px -35px);
+    padding: 35px 0px 35px 35px;
+}
+
+
+.display .vc .main .right {
+    width: 220px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: calc(100% - 35px -35px);
+    padding: 35px 35px 35px 0px;
+}
+
+
+.display .vc .main .content {
+    padding: 50px;
+    padding-left: 200px;
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
 /* Stacked name */
 .name-stacked.large {
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     user-select: none;
     cursor: pointer;
-    color: lightgray;
+    color: lightgray
 }
 
 .name-stacked.large:hover {
@@ -527,23 +645,23 @@ table h3 {
 }
 
 .name-stacked.large .title {
-    font-size: var(--font-size-64);
+    font-size: var(--font-size-80);
     font-weight: bold;
     margin-bottom: -0.2em;
 }
 
 .name-stacked.large .subtitle {
-    font-size: var(--font-size-36);
+    font-size: var(--font-size-48);
 }
 
 /* Navigation menu */
 .navigation {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    font-size: var(--font-size-32);
+    font-size: var(--font-size-48);
 }
 
 .navigation a {
@@ -555,52 +673,44 @@ table h3 {
     color: white;
 }
 
-/* Content to display */
-.display .content-large {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 30vw;
-    text-align: justify;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-dark-2) rgba(0, 0, 0, 0);
-    padding: 1em;
+.navigation a.active {
+    text-decoration: underline;
+    text-decoration-color: var(--color-aqua-2);
 }
 
-.display .content-large :is(h1, h2, h3, h4) {
-    text-align: right;
+.display .content :is(h1, h2, h3, h4) {
+    text-align: left;
 }
 
-.display .content-small {
+.display #description {
+    padding: 2em;
+    background-color: #000c;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #000;
     position: absolute;
-    top: 5em;
-    right: 570px;
-    bottom: 0;
-    left: 15vw;
-    text-align: justify;
+    top: 75px;
+    left: 225px;
+    right: 75px;
+    max-height: calc(100% - 150px - 4em);
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-dark-2) rgba(0, 0, 0, 0);
-    padding: 1em;
+}
+
+.display #description :first-child {
+    margin-top: 0;
 }
 
 .display .content-list {
     list-style: none;
-    text-align: right;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    text-align: left;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: var(--font-size-48);
-    width: 510px;
+    font-size: var(--font-size-24);
     overflow-y: auto;
     scrollbar-width: thin;
-    padding-right: 10px;
+    padding: 10px 0 0 0;
 }
 
 .display .content-list li {
@@ -617,6 +727,177 @@ table h3 {
 }
 
 
+@property --stopA {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: true
+}
+
+@property --stopB {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: true
+}
+
+@property --stopC {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: true
+}
+
+@property --stopD {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: true
+}
+
+.halftone-container-outer {
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    top: 35px;
+    bottom: 35px;
+}
+
+.halftone-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 2em #000;
+    border: thin solid var(--color-aqua-1);
+}
+
+.halftone-control {
+    position: absolute;
+    z-index: 10;
+    font-size: var(--font-size-32);
+    cursor: pointer;
+    top: 10px;
+    left: 10px;
+}
+
+.halftone-control:hover {
+    color: white;
+}
+
+
+.halftone-bg {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10;
+
+    --color-a: #0D41420f;
+    --color-b: #0D41420f;
+
+	--map: radial-gradient(
+			circle at 0% 0%,
+			var(--color-a) 0%, 
+			var(--color-b) var(--stopA), 
+			var(--color-a) var(--stopB), 
+			var(--color-b) 100%
+	);
+	
+	--map2: radial-gradient(
+			circle at 100% 0%,
+			var(--color-a) 0%, 
+			var(--color-b) var(--stopA), 
+			var(--color-a) var(--stopB), 
+			var(--color-b) 100%
+	);
+
+	--map3: radial-gradient(
+			circle at 50% 100%,
+			var(--color-a) 0%, 
+			var(--color-b) var(--stopA), 
+			var(--color-a) var(--stopB), 
+			var(--color-b) 100%
+	);
+
+    background-image: var(--map), var(--map2), var(--map3);
+	animation: pulse 12s linear infinite;
+}
+
+.halftone {
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    --color-accent: #0D4142af;
+
+	--dot: radial-gradient(closest-side, #777, #000 calc(100%/sqrt(2)));
+	--pattern: var(--dot) 0 0/ 2em 2em, var(--dot) 1em 1em/ 2em 2em;
+	--map: radial-gradient(
+			circle at 0% 50%,
+			var(--color-accent) 0%, 
+			#00000000 var(--stopA), 
+			var(--color-accent) var(--stopB), 
+			#00000000 100%
+	);
+	
+	--map2: radial-gradient(
+			circle at 50% 0%,
+			var(--color-accent) 0%, 
+			#00000000 var(--stopA), 
+			var(--color-accent) var(--stopB), 
+			#00000000 100%
+	);
+
+	--map3: radial-gradient(
+			circle at 50% 100%,
+			var(--color-accent) 0%, 
+			#00000000 var(--stopA), 
+			var(--color-accent) var(--stopB), 
+			#00000000 100%
+	);
+
+	--map4: radial-gradient(
+			circle at 100% 50%,
+			var(--color-accent) 0%, 
+			#00000000 var(--stopA), 
+			var(--color-accent) var(--stopB), 
+			#00000000 100%
+	);
+
+	background: 
+		var(--pattern),
+		var(--map),
+		var(--map2),
+		var(--map3),
+		var(--map4);
+  background-blend-mode: screen;
+	mix-blend-mode: screen;
+  filter: contrast(24);
+	animation: pulse 22s linear infinite;
+	transform-origin: center;
+	opacity: 0.4;
+}
+
+
+.halftone.paused {
+    animation-play-state: paused;
+}
+
+@keyframes pulse {
+	0% {
+		--stopA: 0%;
+		--stopB: 0%;
+	}
+	50% {
+		--stopA: 0%;
+		--stopB: 100%;
+	}
+	100% {
+		--stopA: 100%;
+		--stopB: 100%;
+	}
+}
+
 /* Mobile Overrides */
 @media screen and (max-width:1100px) {
     .display {
@@ -626,22 +907,12 @@ table h3 {
         bottom: 0;
     }
 
-    .navigation {
-        font-size: var(--font-size-36);
-        top: var(--font-size-64);
-        right: 0;
-        left: auto;
-        bottom: auto;
-        flex-direction: row;
-        gap: 1em;
+    .display .vc .main .left {
+        justify-content: start;
     }
 
-    .content-large {
-        overscroll-behavior: contain;
-        top: 10em;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: auto;
+    .navigation {
+        font-size: var(--font-size-36);
     }
+    .halftone, .halftone-bg { display : none; }
 }
