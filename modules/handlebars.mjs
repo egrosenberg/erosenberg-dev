@@ -111,7 +111,7 @@ async function renderFromTemplate(url, data = {}) {
         return enrichHtml(msg);
     } catch (error) {
         console.error(error);
-        return undefined;
+        return "";
     }
 }
 
