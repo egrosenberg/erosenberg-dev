@@ -8,6 +8,7 @@ hbs.registerHelpers();
 // load handlebars partials
 hbs.loadPartials([
     "./templates/parts/js-includes.hbs",
+    "./templates/parts/favicon.hbs",
 ]);
 
 
